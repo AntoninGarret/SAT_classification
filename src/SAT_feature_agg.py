@@ -66,5 +66,7 @@ ward.fit(BENCH_DATA)
 #print(ward.children_)
 #print(find_feature_cluster(ward.children_, 0, 2, 300))
 
+plt.title('SAT Feature_Agglomeration')
 plot_dendrogram(ward, leaf_font_size = 12)
+plt.savefig('SAT_Feature_Agglomeration.png')
 plt.show()

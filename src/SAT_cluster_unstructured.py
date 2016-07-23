@@ -85,6 +85,7 @@ red_cluster = find_feature_cluster(ward.children_, 249, 2, 300)
 green_cluster = find_feature_cluster(ward.children_, 187, 1, 300)
 
 print(yellow_cluster)
-plt.title('SAT Clustering Dendrogram unstructed')
+plt.title('SAT Clustering Dendrogram unstructured')
 plot_dendrogram(ward, data_average, leaf_font_size = 12)
+plt.savefig('SAT_Clustering_Dendrogram_unstructured.png')
 plt.show()

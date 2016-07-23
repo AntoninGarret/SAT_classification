@@ -45,7 +45,7 @@ def measure_to_distance(measure):
 		
 
 
-BENCH_DATA = genfromtxt('Sequential_Application_SATUNSAT_track_results_wo_names.csv', delimiter=',')
+BENCH_DATA = genfromtxt('Sequential_Application_SATUNSAT_track_wo_names.csv', delimiter=',')
 data_average = [np.average(i) for i in BENCH_DATA]
 inverse_points = [np.sum(1/i) for i in BENCH_DATA]
 data_std = [np.std(i) for i in BENCH_DATA]
@@ -57,7 +57,7 @@ print(BENCH_DATA.shape)
 
 linkage_matrix = linkage(measure_to_distance(data_std), method = 'average')
 
-plt.title('SAT Clustering Dendrogram unstructed')
+plt.title('SAT Clustering Dendrogram standard deviation distance')
 dendrogram(linkage_matrix, leaf_font_size = 12)
+plt.savefig('SAT_Clustering_Dendrogram_average_standard_deviatino_distance.png')
 plt.show()
-oo
