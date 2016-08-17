@@ -68,5 +68,5 @@ ward.fit(BENCH_DATA)
 
 plt.title('SAT Feature_Agglomeration')
 plot_dendrogram(ward, leaf_font_size = 12)
-plt.savefig('SAT_Feature_Agglomeration.png')
+#plt.savefig('SAT_Feature_Agglomeration.png')
 plt.show()

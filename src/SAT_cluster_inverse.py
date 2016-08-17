@@ -56,7 +56,7 @@ def find_feature_cluster(children, feature, height, sample_size):
 
 BENCH_DATA = genfromtxt('Sequential_Application_SATUNSAT_track_wo_names.csv', delimiter=',')
 data_average = [np.average(i) for i in BENCH_DATA]
-connectivity = [[1 if 1/(i - j) < 0.5/(i + j) else 0 for i in data_average] for j in data_average]
+connectivity = [[1 if 1/(i - j) < 2/(i + j) else 0 for i in data_average] for j in data_average]
 
 
 #BENCH_DATA = BENCH_DATA.transpose()

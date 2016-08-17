@@ -41,8 +41,23 @@ def measure_to_distance(measure):
 	for i in range(n):
 		condensed_distance += distance[i]
 	return condensed_distance
-	
-		
+
+def euclidian_c_distance(data):
+	n = len(data)
+	euclidian_distance = [[np.linalg.norm(data[i]-data[j]) for i in range(j - 1)] for j in range(n)]
+	condensed_distance = []
+	for i in range(n):
+		condensed_distance += euclidian_distance[i]
+	return condensed_distance
+
+def relative_distance(data):
+	n = len(data)
+	m = len(data[0])
+	distance = [[np.average([np.abs(2*(data[i][k]-data[j][k])/(data[i][k] + data[j][k])) for k in range(m)]) for i in range(j - 1)] for j in range(n)]
+	condensed_distance = []
+	for i in range(n):
+		condensed_distance += distance[i]
+	return condensed_distance
 
 
 BENCH_DATA = genfromtxt('Sequential_Application_SATUNSAT_track_wo_names.csv', delimiter=',')
@@ -57,7 +72,7 @@ print(BENCH_DATA.shape)
 
 linkage_matrix = linkage(measure_to_distance(data_std), method = 'average')
 
-plt.title('SAT Clustering Dendrogram standard deviation distance')
+plt.title('SAT Clustering Dendrogram euclidian distance')
 dendrogram(linkage_matrix, leaf_font_size = 12)
-plt.savefig('SAT_Clustering_Dendrogram_average_standard_deviatino_distance.png')
+#plt.savefig('SAT_Clustering_Dendrogram_euclidian_distance.png')
 plt.show()
